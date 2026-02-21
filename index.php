@@ -196,39 +196,52 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
         .section-heading-v2, .guest-testimonials-section h2 { background-color: transparent !important; }
         /* Updated Specialty Card Styles */
         .specialty-card {
-            border: 1px solid #f0f0f0;
-            border-radius: 12px !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            background-color: #fff;
+            border-radius: 20px !important; /* More rounded */
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft, deep shadow */
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            background-color: #fff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
         }
 
         .specialty-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-            border-color: #FFD700;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
 
         .item-summary {
-            font-size: 0.95em;
+            font-family: 'Mada', sans-serif;
+            font-size: 1em;
             color: #666;
             line-height: 1.6;
-            margin: 0 25px 20px;
+            margin: 0 25px 25px;
             flex-grow: 1;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            font-style: italic; /* Menu-style description */
+        }
+
+        /* Updated Title Style for Specialty Card */
+        .specialty-card h3 {
+            font-family: 'Madimi One', sans-serif; /* Catchy display font */
+            font-size: 1.6em;
+            font-weight: 400;
+            color: #2c3e50;
+            margin: 0 25px 12px;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
         }
 
         .specialty-card .image-container {
             position: relative;
             width: 100%;
-            height: 240px;
+            height: 260px; /* Slightly taller */
             margin-bottom: 20px;
+            overflow: hidden; /* Needed for zoom effect */
         }
 
         .specialty-card .image-container img {
@@ -236,6 +249,11 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
             height: 100%;
             object-fit: cover;
             margin-bottom: 0;
+            transition: transform 0.6s ease;
+        }
+
+        .specialty-card:hover .image-container img {
+            transform: scale(1.1); /* Zoom effect */
         }
 
         .hot-sticker-animated {
@@ -278,54 +296,54 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
         .view-details-btn {
             width: calc(100% - 50px);
             margin: 0 25px 25px;
-            background-color: transparent;
-            color: #333;
-            border: 2px solid #FFD700;
-            border-radius: 8px;
-            padding: 10px;
-            font-weight: 600;
-            font-size: 0.95em;
+            background-color: #FFD700; /* Solid Gold */
+            color: #1a1a1a;
+            border: none;
+            border-radius: 50px; /* Pill shape */
+            padding: 14px;
+            font-weight: 700;
+            font-size: 1em;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             height: auto;
-            box-shadow: none;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); /* Glow effect */
         }
 
         .view-details-btn:hover {
-            background-color: #FFD700;
-            color: #000;
-            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
-            transform: none;
+            background-color: #1a1a1a;
+            color: #FFD700;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
         }
 
         .view-details-btn i { font-weight: 600; }
-        .view-details-btn:active { transform: scale(0.98); }
+        .view-details-btn:active { transform: scale(0.95); }
 
         /* Dark Theme Overrides for Specialty Card */
         body.dark-theme .specialty-card {
             background-color: #1e1e1e;
-            border-color: #333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
         body.dark-theme .specialty-card h3 {
             color: #f0f0f0;
         }
         body.dark-theme .item-summary {
-            color: #bbb;
+            color: #aaa;
         }
         body.dark-theme .view-details-btn {
-            background-color: transparent;
-            border-color: #FFD700;
-            color: #FFD700;
+            background-color: #FFD700;
+            color: #1a1a1a;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
         }
         body.dark-theme .view-details-btn:hover {
-            background-color: #FFD700;
-            color: #000;
+            background-color: #fff;
+            color: #1a1a1a;
         }
 
         .item-modal-content {

@@ -44,45 +44,56 @@
 
 
         /* --- INLINED & ADJUSTED STYLES FOR MENU PAGE (Existing styles below) --- */
-        .menu-section { padding: 40px 0; background-color: #f8f8f8; }
+        .menu-section { padding: 40px 0; background-color: #fffcf5; /* Warmer, tastier background */ }
+
+        /* Dark Mode Background Override */
+        body.dark-theme .menu-section { background-color: #121212; }
 
         .section-heading-v2 { margin-bottom: 40px; }
 
         .category-buttons-container { position: relative; width: 100%; }
         .category-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
 
-        .category-btn { background-color: #f0f0f0; color: #555; border: none; padding: 8px 18px; border-radius: 25px; cursor: pointer; font-size: 0.9em; font-weight: 500; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; }
+        .category-btn { background-color: #fff; color: #555; border: 1px solid #e0e0e0; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-size: 0.95em; font-weight: 600; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 
         .category-btn .btn-text { margin-left: 6px; }
-        .category-btn:hover { background-color: #e0e0e0; }
-        .category-btn.active { background-color: #FFD700; color: #333; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .category-btn.active i { color: #333; }
+        .category-btn:hover { background-color: #f9f9f9; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .category-btn.active { background-color: #FFD700; color: #1a1a1a; border-color: #FFD700; box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3); transform: scale(1.05); }
+        .category-btn.active i { color: #1a1a1a; }
+
+        /* Dark Theme Category Buttons */
+        body.dark-theme .category-btn { background-color: #1e1e1e; border-color: #333; color: #ccc; }
+        body.dark-theme .category-btn:hover { background-color: #333; }
+        body.dark-theme .category-btn.active { background-color: #FFD700; color: #1a1a1a; border-color: #FFD700; }
 
         .search-sort { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
         .search-bar { position: relative; }
-        .search-bar input { padding: 10px 15px 10px 40px; border: 1px solid #ddd; border-radius: 25px; font-size: 0.95em; width: 200px; transition: border-color 0.3s ease; }
-        .search-bar input:focus { border-color: #FFD700; outline: none; }
-        .search-bar i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999; }
+        .search-bar input { padding: 12px 20px 12px 45px; border: 1px solid #ddd; border-radius: 50px; font-size: 1em; width: 220px; transition: all 0.3s ease; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .search-bar input:focus { border-color: #FFD700; outline: none; box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2); width: 250px; }
+        .search-bar i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #aaa; font-size: 1.1em; }
 
-        /* Removed .sort-by styles as it is removed */
+        /* Dark Theme Search Bar */
+        body.dark-theme .search-bar input { background-color: #1e1e1e; border-color: #333; color: #fff; }
+        body.dark-theme .search-bar input:focus { border-color: #FFD700; }
 
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; justify-content: center; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; justify-content: center; padding: 20px 0; }
 
-        /* --- NEW MENU ITEM CARD STYLES --- */
+        /* --- NEW CATCHY & TASTY MENU ITEM CARD STYLES --- */
         .menu-item-card {
             background-color: #fff;
-            border-radius: 12px;
-            border: 1px solid #f0f0f0; /* Subtle border */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-radius: 20px; /* More rounded */
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft, deep shadow */
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
             display: flex;
             flex-direction: column;
-            height: 100%; /* Let grid handle height */
-            min-height: 420px; /* Ensure consistency */
+            height: 100%;
+            min-height: 480px;
             opacity: 0;
             transform: translateY(30px);
             visibility: hidden;
+            position: relative;
         }
 
         .menu-item-card.is-visible {
@@ -92,100 +103,108 @@
         }
 
         .menu-item-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-            border-color: #FFD700; /* Highlight border on hover */
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
 
         .menu-item-card img {
             width: 100%;
-            height: 240px; /* Taller image */
+            height: 260px; /* Slightly taller */
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .menu-item-card:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1); /* Zoom effect */
         }
 
         .menu-item-content {
-            padding: 20px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+            background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%); /* Subtle gradient */
         }
 
         .menu-item-card h3 {
-            font-family: 'Mada', sans-serif;
-            font-size: 1.35em;
-            font-weight: 700;
-            color: #222;
-            margin: 0 0 10px 0;
-            line-height: 1.3;
+            font-family: 'Madimi One', sans-serif; /* Catchy display font */
+            font-size: 1.6em;
+            font-weight: 400; /* Madimi One is bold by default, maybe 400 is better */
+            color: #2c3e50; /* Darker, richer text color */
+            margin: 0 0 12px 0;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
         }
 
         .item-summary {
-            font-size: 0.95em;
+            font-family: 'Mada', sans-serif;
+            font-size: 1em;
             color: #666;
             line-height: 1.6;
-            margin-bottom: 20px;
-            flex-grow: 1; /* Pushes button down */
+            margin-bottom: 25px;
+            flex-grow: 1;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            font-style: italic; /* Menu-style description */
         }
 
         .view-details-btn {
             width: 100%;
-            background-color: transparent;
-            color: #333;
-            border: 2px solid #FFD700;
-            border-radius: 8px;
-            padding: 10px;
-            font-weight: 600;
-            font-size: 0.95em;
+            background-color: #FFD700; /* Solid Gold */
+            color: #1a1a1a;
+            border: none;
+            border-radius: 50px; /* Pill shape */
+            padding: 14px;
+            font-weight: 700;
+            font-size: 1em;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             margin-top: auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             height: auto;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); /* Glow effect */
         }
 
         .view-details-btn:hover {
-            background-color: #FFD700;
-            color: #000;
-            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
-            transform: none;
+            background-color: #1a1a1a;
+            color: #FFD700;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
         }
 
         .view-details-btn:active {
-            transform: scale(0.98);
+            transform: scale(0.95);
         }
 
         /* Dark theme support for new cards */
         body.dark-theme .menu-item-card {
             background-color: #1e1e1e;
-            border-color: #333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        body.dark-theme .menu-item-content {
+            background: linear-gradient(to bottom, #1e1e1e 0%, #1a1a1a 100%);
         }
         body.dark-theme .menu-item-card h3 {
             color: #f0f0f0;
         }
         body.dark-theme .item-summary {
-            color: #bbb;
+            color: #aaa;
         }
         body.dark-theme .view-details-btn {
-            border-color: #FFD700;
-            color: #FFD700;
+            background-color: #FFD700;
+            color: #1a1a1a;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
         }
         body.dark-theme .view-details-btn:hover {
-            background-color: #FFD700;
-            color: #000;
+            background-color: #fff;
+            color: #1a1a1a;
         }
 
         /* Modal Styles */
