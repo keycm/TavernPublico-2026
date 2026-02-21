@@ -327,6 +327,7 @@
     <div class="header-content">
         <div class="logo">
             <div class="logo-main-line">
+                <img src="logo.png" alt="Tavern Publico Logo" style="height: 40px; margin-right: 10px;">
                 <span>TAVERN PUBLICO</span>
             </div>
             <span class="est-year">EST ★ 2024</span>
