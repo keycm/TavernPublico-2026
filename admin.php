@@ -113,6 +113,7 @@ mysqli_close($link);
             <nav>
                 <ul class="sidebar-menu">
                     <li class="menu-item active"><a href="admin.php"><i class="material-icons">dashboard</i> Dashboard</a></li>
+                    <li class="menu-item"><a href="pos_dashboard.php"><i class="material-icons">point_of_sale</i> POS & Stock</a></li>
                     <li class="menu-item"><a href="reservation.php"><i class="material-icons">event_note</i> Reservation</a></li>
                     <li class="menu-item"><a href="update.php"><i class="material-icons">file_upload</i> Upload Management</a></li>
                 </ul>
