@@ -1,0 +1,15 @@
+[Mon Feb 23 08:50:21 2026] PHP 8.3.6 Development Server (http://localhost:8000) started
+[Mon Feb 23 08:50:23 2026] [::1]:54998 Accepted
+[Mon Feb 23 08:50:23 2026] PHP Fatal error:  Uncaught mysqli_sql_exception: No such file or directory in /app/db_connect.php:8
+Stack trace:
+#0 /app/db_connect.php(8): mysqli_connect()
+#1 /app/update_db.php(7): require_once('...')
+#2 {main}
+  thrown in /app/db_connect.php on line 8
+[Mon Feb 23 08:50:23 2026] [::1]:54998 [200]: GET /update_db.php - Uncaught mysqli_sql_exception: No such file or directory in /app/db_connect.php:8
+Stack trace:
+#0 /app/db_connect.php(8): mysqli_connect()
+#1 /app/update_db.php(7): require_once('...')
+#2 {main}
+  thrown in /app/db_connect.php on line 8
+[Mon Feb 23 08:50:23 2026] [::1]:54998 Closing

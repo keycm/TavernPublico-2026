@@ -44,62 +44,188 @@
 
 
         /* --- INLINED & ADJUSTED STYLES FOR MENU PAGE (Existing styles below) --- */
-        .menu-section { padding: 40px 0; background-color: #f8f8f8; }
+        .menu-section { padding: 40px 0; background-color: #fffcf5; /* Warmer, tastier background */ }
+
+        /* Dark Mode Background Override */
+        body.dark-theme .menu-section { background-color: #121212; }
 
         .section-heading-v2 { margin-bottom: 40px; }
 
         .category-buttons-container { position: relative; width: 100%; }
         .category-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
 
-        .category-btn { background-color: #f0f0f0; color: #555; border: none; padding: 8px 18px; border-radius: 25px; cursor: pointer; font-size: 0.9em; font-weight: 500; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; }
+        .category-btn { background-color: #fff; color: #555; border: 1px solid #e0e0e0; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-size: 0.95em; font-weight: 600; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 
         .category-btn .btn-text { margin-left: 6px; }
-        .category-btn:hover { background-color: #e0e0e0; }
-        .category-btn.active { background-color: #FFD700; color: #333; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .category-btn.active i { color: #333; }
+        .category-btn:hover { background-color: #f9f9f9; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .category-btn.active { background-color: #FFD700; color: #1a1a1a; border-color: #FFD700; box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3); transform: scale(1.05); }
+        .category-btn.active i { color: #1a1a1a; }
+
+        /* Dark Theme Category Buttons */
+        body.dark-theme .category-btn { background-color: #1e1e1e; border-color: #333; color: #ccc; }
+        body.dark-theme .category-btn:hover { background-color: #333; }
+        body.dark-theme .category-btn.active { background-color: #FFD700; color: #1a1a1a; border-color: #FFD700; }
+
         .search-sort { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
         .search-bar { position: relative; }
-        .search-bar input { padding: 10px 15px 10px 40px; border: 1px solid #ddd; border-radius: 25px; font-size: 0.95em; width: 200px; transition: border-color 0.3s ease; }
-        .search-bar input:focus { border-color: #FFD700; outline: none; }
-        .search-bar i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #999; }
-        .sort-by { display: flex; align-items: center; gap: 10px; }
-        .sort-by label { font-weight: 500; color: #555; }
-        .sort-by select { padding: 8px 15px; border: 1px solid #ddd; border-radius: 25px; background-color: #fff; font-size: 0.95em; cursor: pointer; }
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; justify-content: center; }
-        .menu-item-card { background-color: #fff; border-radius: 15px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); overflow: hidden; text-align: left; transition: all 0.3s ease; display: flex; flex-direction: column; height: 380px; }
-        .menu-item-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); }
-        
-        .menu-item-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover; /* This fills the box and crops, ensuring no empty space */
+        .search-bar input { padding: 12px 20px 12px 45px; border: 1px solid #ddd; border-radius: 50px; font-size: 1em; width: 220px; transition: all 0.3s ease; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .search-bar input:focus { border-color: #FFD700; outline: none; box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2); width: 250px; }
+        .search-bar i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #aaa; font-size: 1.1em; }
+
+        /* Dark Theme Search Bar */
+        body.dark-theme .search-bar input { background-color: #1e1e1e; border-color: #333; color: #fff; }
+        body.dark-theme .search-bar input:focus { border-color: #FFD700; }
+
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; justify-content: center; padding: 20px 0; }
+
+        /* --- NEW CATCHY & TASTY MENU ITEM CARD STYLES --- */
+        .menu-item-card {
+            background-color: #fff;
+            border-radius: 20px; /* More rounded */
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft, deep shadow */
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 480px;
+            opacity: 0;
+            transform: translateY(30px);
+            visibility: hidden;
+            position: relative;
         }
 
-        .menu-item-card h3 { font-family: 'Mada', sans-serif; font-size: 1.6em; margin: 20px 20px 10px; color: #222; font-weight: 600; line-height: 1.3; }
-        .item-price-add { display: flex; justify-content: space-between; align-items: center; padding: 0 20px 20px; margin-top: auto; }
-        .item-price-add .price { font-family: 'Mada', sans-serif; font-size: 1.5em; font-weight: 700; color: #333; }
-        .view-details-btn { background-color: #FFD700; color: #333; border: none; border-radius: 50%; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; font-size: 1.4rem; cursor: pointer; transition: all 0.2s ease-in-out; box-shadow: 0 2px 5px rgba(0,0,0,0.15); }
-        .view-details-btn i { font-weight: 600; transition: transform 0.2s ease-in-out; }
-        .view-details-btn:hover { background-color: #e6c200; transform: scale(1.1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        .view-details-btn:active { transform: scale(0.95); }
+        .menu-item-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        .menu-item-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .menu-item-card img {
+            width: 100%;
+            height: 260px; /* Slightly taller */
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .menu-item-card:hover img {
+            transform: scale(1.1); /* Zoom effect */
+        }
+
+        .menu-item-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%); /* Subtle gradient */
+        }
+
+        .menu-item-card h3 {
+            font-family: 'Madimi One', sans-serif; /* Catchy display font */
+            font-size: 1.6em;
+            font-weight: 400; /* Madimi One is bold by default, maybe 400 is better */
+            color: #2c3e50; /* Darker, richer text color */
+            margin: 0 0 12px 0;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
+        .item-summary {
+            font-family: 'Mada', sans-serif;
+            font-size: 1em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            font-style: italic; /* Menu-style description */
+        }
+
+        .view-details-btn {
+            width: 100%;
+            background-color: #FFD700; /* Solid Gold */
+            color: #1a1a1a;
+            border: none;
+            border-radius: 50px; /* Pill shape */
+            padding: 14px;
+            font-weight: 700;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            height: auto;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); /* Glow effect */
+        }
+
+        .view-details-btn:hover {
+            background-color: #1a1a1a;
+            color: #FFD700;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .view-details-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Dark theme support for new cards */
+        body.dark-theme .menu-item-card {
+            background-color: #1e1e1e;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        body.dark-theme .menu-item-content {
+            background: linear-gradient(to bottom, #1e1e1e 0%, #1a1a1a 100%);
+        }
+        body.dark-theme .menu-item-card h3 {
+            color: #f0f0f0;
+        }
+        body.dark-theme .item-summary {
+            color: #aaa;
+        }
+        body.dark-theme .view-details-btn {
+            background-color: #FFD700;
+            color: #1a1a1a;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+        }
+        body.dark-theme .view-details-btn:hover {
+            background-color: #fff;
+            color: #1a1a1a;
+        }
+
+        /* Modal Styles */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
         .item-modal-content { background-color: #fff; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,.2); width: 90%; max-width: 500px !important; padding: 0 !important; text-align: left; position: relative; animation: fadeIn .4s; }
         @keyframes fadeIn { from { opacity: 0; transform: scale(.95) } to { opacity: 1; transform: scale(1) } }
         .item-modal-content .close-button { position: absolute; top: 10px; right: 20px; color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; }
-        
+
         .item-modal-content img {
             width: 100%;
             height: 250px;
             object-fit: cover;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-            cursor: default; /* --- MODIFICATION: Changed from 'zoom-in' to 'default' --- */
+            cursor: default;
         }
 
         .modal-item-details { padding: 25px; }
         .modal-item-details h2 { font-size: 2em; margin-top: 0; margin-bottom: 0; text-align: left; color: #222; line-height: 1.2; }
         .modal-item-details p { font-size: 1.1em; color: #555; line-height: 1.7; margin-bottom: 20px; }
-        .modal-price-tag { font-size: 1.8em; font-weight: 700; color: #333; text-align: right; }
+        /* Removed .modal-price-tag */
 
         .swipe-indicator { display: none; }
 
@@ -131,12 +257,12 @@
             .search-bar { flex-grow: 1; }
             .search-bar input { width: 100%; }
         }
-        
+
         @media (max-width: 768px) {
             .menu-section {
                 padding-top: 25px; /* Was 40px */
             }
-            
+
             .section-heading-v2 {
                 margin-bottom: 15px; /* Was 20px, reduced further */
             }
@@ -153,14 +279,14 @@
             }
             .category-buttons::-webkit-scrollbar { display: none; }
             .category-btn { flex-shrink: 0; }
-            
+
             /* --- MODIFIED SEARCH/SORT --- */
-            .search-sort { 
+            .search-sort {
                 flex-direction: row; /* Was column */
                 align-items: center; /* Was stretch */
-                gap: 15px; 
+                gap: 15px;
                 width: 100%; /* Ensure it takes full width */
-                justify-content: space-between; /* Puts sort on the right */
+                justify-content: flex-start;
             }
             .search-bar {
                 flex-grow: 1; /* Make search bar take available space */
@@ -168,52 +294,30 @@
             .search-bar input {
                 width: 100%; /* Make input fill the search-bar container */
             }
-            .sort-by {
-                flex-shrink: 0; /* Don't let the sort box shrink */
-            }
             /* --- END MODIFIED --- */
-            
-            .menu-grid { 
-                grid-template-columns: repeat(2, 1fr); /* Force 2 columns */
-                gap: 20px; 
+
+            .menu-grid {
+                grid-template-columns: repeat(1, 1fr); /* 1 column on mobile for better detail view */
+                gap: 20px;
             }
 
             .menu-item-card {
                 height: auto; /* Remove fixed height */
+                min-height: auto;
             }
             .menu-item-card img {
-                height: 120px; /* Make image shorter */
+                height: 180px;
             }
             .menu-item-card h3 {
-                font-size: 1.1em; /* Smaller font */
-                margin: 10px 10px 5px; /* Tighter margins */
-            }
-            .item-price-add {
-                padding: 0 10px 10px; /* Tighter padding */
-            }
-            .item-price-add .price {
-                font-size: 1.1em; /* Smaller price */
+                font-size: 1.2em;
             }
             .view-details-btn {
-                width: 36px; /* Smaller button */
-                height: 36px;
-                font-size: 1.1rem;
+                font-size: 0.9rem;
+                padding: 8px;
             }
 
             .swipe-indicator { display: flex; align-items: center; position: absolute; top: 50%; right: 0; transform: translateY(-50%); background-color: rgba(0,0,0,0.7); color: #fff; padding: 8px 15px; border-radius: 20px; font-size: 0.85em; z-index: 10; pointer-events: none; opacity: 1; transition: opacity 0.5s ease; }
             .swipe-indicator.hide { opacity: 0; }
-        }
-
-        .menu-item-card {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-            visibility: hidden;
-        }
-        .menu-item-card.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-            visibility: visible;
         }
 
         /* --- NEW: Scroll to Top Button Styles --- */
@@ -276,7 +380,7 @@
                         <div class="line"></div>
                     </div>
                 </div>
-                <div class="menu-header"> 
+                <div class="menu-header">
                     <div class="category-buttons-container">
                         <div class="category-buttons">
                             <button class="category-btn active" data-category="All"><i class="fas fa-list"></i><span class="btn-text">All Items</span></button>
@@ -297,14 +401,7 @@
                             <i class="fas fa-search"></i>
                             <input type="text" id="searchInput" placeholder="Search menu...">
                         </div>
-                        <div class="sort-by">
-                            <label for="sort-select">Sort by:</label>
-                            <select id="sort-select">
-                                <option value="popular">Popular</option>
-                                <option value="price-low-high">Price (Low to High)</option>
-                                <option value="price-high-low">Price (High to Low)</option>
-                            </select>
-                        </div>
+                        <!-- Sort By removed as Price sorting is removed -->
                     </div>
                 </div>
                 <div class="menu-grid">
@@ -318,18 +415,23 @@
 
                     if ($result && $result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
+                            // Create summary
+                            $raw_description = $row['description'];
+                            // Simple truncation. CSS line-clamp handles the visual part, but we truncate here to avoid huge HTML
+                            $summary = (mb_strlen($raw_description) > 150) ? mb_substr($raw_description, 0, 150) . '...' : $raw_description;
+                            $summary_html = htmlspecialchars($summary, ENT_QUOTES);
+
                             echo '<div class="menu-item-card"
                                     data-name="' . htmlspecialchars($row['name'], ENT_QUOTES) . '"
                                     data-image="' . htmlspecialchars($row['image']) . '"
-                                    data-price="₱' . number_format($row['price'], 2) . '"
                                     data-description="' . htmlspecialchars($row['description'], ENT_QUOTES) . '"
                                     data-category="' . htmlspecialchars($row['category']) . '">';
 
                             echo '  <img src="' . htmlspecialchars($row['image']) . '" alt="' . htmlspecialchars($row['name']) . '">';
-                            echo '  <h3>' . htmlspecialchars($row['name']) . '</h3>';
-                            echo '  <div class="item-price-add">';
-                            echo '    <span class="price">₱' . number_format($row['price'], 2) . '</span>';
-                            echo '    <button class="view-details-btn"><i class="fas fa-info-circle"></i></button>';
+                            echo '  <div class="menu-item-content">';
+                            echo '    <h3>' . htmlspecialchars($row['name']) . '</h3>';
+                            echo '    <p class="item-summary">' . $summary_html . '</p>';
+                            echo '    <button class="view-details-btn">View Details <i class="fas fa-arrow-right"></i></button>';
                             echo '  </div>';
                             echo '</div>';
                         }
@@ -358,16 +460,16 @@
             <span class="close-button">&times;</span>
             <img id="modalItemImage" src="" alt="Menu Item Image">
             <div class="modal-item-details">
-                
+
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
                     <h2 id="modalItemName"></h2>
-                    <button id="viewFullImageBtn" class="view-details-btn" title="View full image" style="flex-shrink: 0; margin-left: 15px;">
+                    <button id="viewFullImageBtn" class="view-details-btn" title="View full image" style="flex-shrink: 0; margin-left: 15px; width: auto; padding: 8px 15px;">
                         <i class="fas fa-search-plus"></i>
                     </button>
                 </div>
 
                 <p id="modalItemDescription"></p>
-                <div class="modal-price-tag" id="modalItemPrice"></div>
+                <!-- Price tag removed -->
             </div>
         </div>
     </div>
@@ -384,40 +486,32 @@
             const menuItemModal = document.getElementById('menuItemModal');
             const modalName = document.getElementById('modalItemName');
             const modalImage = document.getElementById('modalItemImage');
-            const modalPrice = document.getElementById('modalItemPrice');
+            // Price variable removed
             const modalDescription = document.getElementById('modalItemDescription');
-            const modalCloseButton = menuItemModal ? menuItemModal.querySelector('.close-button') : null; // Added null check
+            const modalCloseButton = menuItemModal ? menuItemModal.querySelector('.close-button') : null;
 
             document.querySelectorAll('.view-details-btn').forEach(button => {
                 button.addEventListener('click', () => {
                     const card = button.closest('.menu-item-card');
-                    if (!card || !menuItemModal) return; 
+                    // Check if it's the zoom button inside the modal, if so, ignore (or handle differently)
+                    if (button.id === 'viewFullImageBtn') return;
+
+                    if (!card || !menuItemModal) return;
 
                     modalName.textContent = card.dataset.name;
                     modalImage.src = card.dataset.image;
-                    modalPrice.textContent = card.dataset.price;
+                    // Price setting removed
                     modalDescription.textContent = card.dataset.description;
 
                     menuItemModal.style.display = 'flex';
                 });
             });
 
-            if (modalCloseButton) { 
+            if (modalCloseButton) {
                 modalCloseButton.addEventListener('click', () => {
                     if (menuItemModal) menuItemModal.style.display = 'none';
                 });
             }
-
-            // --- MODIFICATION: Removed window.addEventListener for menuItemModal ---
-            /*
-            window.addEventListener('click', (event) => {
-                if (event.target == menuItemModal) {
-                   if (menuItemModal) menuItemModal.style.display = 'none';
-                }
-            });
-            */
-            // --- END MODIFICATION ---
-
 
             // --- Image Viewer Modal Logic ---
             const imageViewerModal = document.getElementById('imageViewerModal');
@@ -432,15 +526,6 @@
                 }
             }
 
-            // --- MODIFICATION: Removed click listener for modalImage ---
-            /*
-            if (modalImage) {
-                modalImage.addEventListener('click', openImageViewer);
-            }
-            */
-            // --- END MODIFICATION ---
-
-            // Click listener for the new "zoom" button (remains the same)
             if (viewFullImageBtn) {
                 viewFullImageBtn.addEventListener('click', openImageViewer);
             }
@@ -450,19 +535,6 @@
                     if (imageViewerModal) imageViewerModal.style.display = 'none';
                 });
             }
-
-            // --- MODIFICATION: Removed window.addEventListener for imageViewerModal ---
-            /*
-            if (imageViewerModal) {
-                imageViewerModal.addEventListener('click', (event) => {
-                    if (event.target == imageViewerModal) {
-                        imageViewerModal.style.display = 'none';
-                    }
-                });
-            }
-            */
-            // --- END MODIFICATION ---
-
 
             const categoryButtonsContainer = document.querySelector('.category-buttons');
             const swipeIndicator = document.querySelector('.swipe-indicator');
@@ -480,18 +552,17 @@
 
             const categoryButtons = document.querySelectorAll('.category-btn');
             const searchInput = document.getElementById('searchInput');
-            const sortBySelect = document.getElementById('sort-select');
+            // Sort variables removed
             const menuGrid = document.querySelector('.menu-grid');
-            
+
             const allMenuItems = Array.from(document.querySelectorAll('.menu-item-card'));
 
             const filterAndSort = () => {
                 const activeCategoryBtn = document.querySelector('.category-btn.active');
-                if (!activeCategoryBtn || !searchInput || !sortBySelect || !menuGrid) return;
+                if (!activeCategoryBtn || !searchInput || !menuGrid) return;
                 const activeCategory = activeCategoryBtn.dataset.category;
                 const searchTerm = searchInput.value.toLowerCase();
-                const sortValue = sortBySelect.value;
-                
+
                 let itemsToShow = allMenuItems;
 
                 itemsToShow.forEach(item => {
@@ -501,19 +572,7 @@
                     item.style.display = (isVisibleByCategory && isVisibleBySearch) ? 'flex' : 'none';
                 });
 
-                let visibleItems = itemsToShow.filter(item => item.style.display !== 'none');
-
-                visibleItems.sort((a, b) => {
-                    if (sortValue === 'popular') return 0;
-                    const priceA = parseFloat(a.dataset.price.replace(/[₱,]/g, ''));
-                    const priceB = parseFloat(b.dataset.price.replace(/[₱,]/g, ''));
-                    if (sortValue === 'price-low-high') return priceA - priceB;
-                    if (sortValue === 'price-high-low') return priceB - priceA;
-                    return 0;
-                });
-
-                menuGrid.innerHTML = '';
-                visibleItems.forEach(item => menuGrid.appendChild(item));
+                // Sorting logic removed - relying on default (database) order
             };
 
             categoryButtons.forEach(button => {
@@ -525,7 +584,6 @@
             });
 
             if(searchInput) searchInput.addEventListener('input', filterAndSort);
-            if(sortBySelect) sortBySelect.addEventListener('change', filterAndSort);
 
             const menuItems = document.querySelectorAll('.menu-item-card');
 
@@ -545,9 +603,9 @@
                 observer.observe(item);
             });
 
-            filterAndSort(); 
+            filterAndSort();
 
-            
+
             // --- NEW: Scroll to Top Button JavaScript ---
             const scrollTopBtn = document.getElementById('scrollTopBtn');
 

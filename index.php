@@ -86,49 +86,49 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
         .hero-text-container { text-align: left; max-width: 650px; }
         .hero-text-container h1 { font-family: 'Madimi One', sans-serif; margin-bottom: 15px; color: #FFD700; line-height: 1.2; font-weight: 700; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); font-size: clamp(2.2rem, 7vw + 1rem, 4.5rem); word-wrap: break-word; hyphens: auto; }
         .hero-text-container p { margin-bottom: 25px; max-width: 500px; color: #FFFFFF; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); font-size: clamp(0.9rem, 2vw + 0.5rem, 1.2rem); }
-        
+
         .hero-buttons { display: flex; gap: 15px; }
-        .hero-buttons .btn { 
-            border-radius: 8px; 
-            font-weight: bold; 
-            padding: 14px 20px; 
-            font-size: 1em; 
-            text-transform: none; 
-            transition: all 0.3s ease; 
-            width: 180px; 
-            display: inline-flex; 
-            justify-content: center; 
-            align-items: center; 
-            margin-top: 0; 
-            text-decoration: none; 
+        .hero-buttons .btn {
+            border-radius: 8px;
+            font-weight: bold;
+            padding: 14px 20px;
+            font-size: 1em;
+            text-transform: none;
+            transition: all 0.3s ease;
+            width: 180px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0;
+            text-decoration: none;
         }
-        
-        .hero-buttons .btn.btn-outline-white { 
-            background-color: transparent; 
-            color: #fff; 
-            border: 2px solid #fff; 
+
+        .hero-buttons .btn.btn-outline-white {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
         }
-        
-        .hero-buttons .btn.btn-secondary { 
-            background-color: #FFD700; 
-            color: #1a1a1a; 
-            border: 2px solid #FFD700; 
+
+        .hero-buttons .btn.btn-secondary {
+            background-color: #FFD700;
+            color: #1a1a1a;
+            border: 2px solid #FFD700;
         }
-        
-        .hero-buttons .btn:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+
+        .hero-buttons .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        
-        .hero-buttons .btn.btn-outline-white:hover { 
-            background-color: #fff; 
-            color: #1a1a1a; 
-            border-color: #fff; 
+
+        .hero-buttons .btn.btn-outline-white:hover {
+            background-color: #fff;
+            color: #1a1a1a;
+            border-color: #fff;
         }
-        
-        .hero-buttons .btn.btn-secondary:hover { 
-            background-color: #e6c200; 
-            border-color: #e6c200; 
+
+        .hero-buttons .btn.btn-secondary:hover {
+            background-color: #e6c200;
+            border-color: #e6c200;
             color: #1a1a1a;
         }
 
@@ -166,7 +166,7 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
         #ratingModal .modal-form { width: 100%; }
 
         .slider-wrapper { display: grid; grid-template-columns: repeat(3, 1fr); gap: 29px; }
-        .slider-btn { display: none !important; } 
+        .slider-btn { display: none !important; }
 
 
         @media (max-width: 768px) {
@@ -194,36 +194,75 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
         .revealUp.active { opacity: 1; visibility: visible; transform: translateY(0); }
 
         .section-heading-v2, .guest-testimonials-section h2 { background-color: transparent !important; }
-        .specialty-card p {
+        /* Updated Specialty Card Styles */
+        .specialty-card {
+            background-color: #fff;
+            border-radius: 20px !important; /* More rounded */
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft, deep shadow */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .item-summary {
+            font-family: 'Mada', sans-serif;
+            font-size: 1em;
+            color: #666;
+            line-height: 1.6;
+            margin: 0 25px 25px;
+            flex-grow: 1;
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            text-overflow: ellipsis;
-            min-height: 3em;
+            font-style: italic; /* Menu-style description */
+        }
+
+        /* Updated Title Style for Specialty Card */
+        .specialty-card h3 {
+            font-family: 'Madimi One', sans-serif; /* Catchy display font */
+            font-size: 1.6em;
+            font-weight: 400;
+            color: #2c3e50;
+            margin: 0 25px 12px;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
         }
 
         .specialty-card .image-container {
-            position: relative; 
+            position: relative;
             width: 100%;
-            height: 210px; 
-            margin-bottom: 20px; 
+            height: 260px; /* Slightly taller */
+            margin-bottom: 20px;
+            overflow: hidden; /* Needed for zoom effect */
         }
 
         .specialty-card .image-container img {
             width: 100%;
-            height: 100%; 
+            height: 100%;
             object-fit: cover;
-            margin-bottom: 0; 
+            margin-bottom: 0;
+            transition: transform 0.6s ease;
         }
-        
+
+        .specialty-card:hover .image-container img {
+            transform: scale(1.1); /* Zoom effect */
+        }
+
         .hot-sticker-animated {
             position: absolute;
             top: 12px;
-            left: 12px; 
-            width: 50px; 
+            left: 12px;
+            width: 50px;
             height: 50px;
-            background-color: #e74c3c; 
+            background-color: #e74c3c;
             color: white;
             border-radius: 50%;
             display: flex;
@@ -239,39 +278,83 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
 
         @keyframes pulse-fire {
             0% {
-                box-shadow: 0 0 8px rgba(231, 76, 60, 0.7), 
+                box-shadow: 0 0 8px rgba(231, 76, 60, 0.7),
                             0 0 10px rgba(231, 76, 60, 0.5);
             }
             50% {
-                box-shadow: 0 0 16px rgba(243, 156, 18, 1),  
+                box-shadow: 0 0 16px rgba(243, 156, 18, 1),
                             0 0 20px rgba(243, 156, 18, 0.7),
-                            0 0 25px rgba(231, 76, 60, 0.5); 
+                            0 0 25px rgba(231, 76, 60, 0.5);
             }
             100% {
-                box-shadow: 0 0 8px rgba(231, 76, 60, 0.7), 
+                box-shadow: 0 0 8px rgba(231, 76, 60, 0.7),
                             0 0 10px rgba(231, 76, 60, 0.5);
             }
         }
-        
-        .view-details-btn { 
-            background-color: #FFD700; color: #333; border: none; border-radius: 50%; 
-            width: 45px; height: 45px; display: flex; justify-content: center; 
-            align-items: center; font-size: 1.4rem; cursor: pointer; 
-            transition: all 0.2s ease-in-out; box-shadow: 0 2px 5px rgba(0,0,0,0.15); 
+
+        /* Updated View Details Button */
+        .view-details-btn {
+            width: calc(100% - 50px);
+            margin: 0 25px 25px;
+            background-color: #FFD700; /* Solid Gold */
+            color: #1a1a1a;
+            border: none;
+            border-radius: 50px; /* Pill shape */
+            padding: 14px;
+            font-weight: 700;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            height: auto;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); /* Glow effect */
         }
-        .view-details-btn i { font-weight: 600; transition: transform 0.2s ease-in-out; }
-        .view-details-btn:hover { background-color: #e6c200; transform: scale(1.1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+        .view-details-btn:hover {
+            background-color: #1a1a1a;
+            color: #FFD700;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .view-details-btn i { font-weight: 600; }
         .view-details-btn:active { transform: scale(0.95); }
-        
-        .item-modal-content { 
-            background-color: #fff; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,.2); 
-            width: 90%; max-width: 500px !important; padding: 0 !important; text-align: left; 
-            position: relative; animation: fadeIn .4s; 
+
+        /* Dark Theme Overrides for Specialty Card */
+        body.dark-theme .specialty-card {
+            background-color: #1e1e1e;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        body.dark-theme .specialty-card h3 {
+            color: #f0f0f0;
+        }
+        body.dark-theme .item-summary {
+            color: #aaa;
+        }
+        body.dark-theme .view-details-btn {
+            background-color: #FFD700;
+            color: #1a1a1a;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+        }
+        body.dark-theme .view-details-btn:hover {
+            background-color: #fff;
+            color: #1a1a1a;
+        }
+
+        .item-modal-content {
+            background-color: #fff; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,.2);
+            width: 90%; max-width: 500px !important; padding: 0 !important; text-align: left;
+            position: relative; animation: fadeIn .4s;
         }
         @keyframes fadeIn { from { opacity: 0; transform: scale(.95) } to { opacity: 1; transform: scale(1) } }
-        .item-modal-content .close-button { 
-            position: absolute; top: 10px; right: 20px; color: #aaa; 
-            font-size: 28px; font-weight: bold; cursor: pointer; 
+        .item-modal-content .close-button {
+            position: absolute; top: 10px; right: 20px; color: #aaa;
+            font-size: 28px; font-weight: bold; cursor: pointer;
         }
         .item-modal-content img { width: 100%; height: 250px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px; }
         .modal-item-details { padding: 25px; }
@@ -280,9 +363,9 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
         .modal-price-tag { font-size: 1.8em; font-weight: 700; color: #333; text-align: right; }
 
         .image-viewer-modal { background-color: rgba(0,0,0,0.85); z-index: 2001; }
-        .image-viewer-content { 
-            background-color: transparent; box-shadow: none; max-width: 90%; max-height: 90vh; 
-            width: auto; height: auto; padding: 0 !important; border-radius: 5px; 
+        .image-viewer-content {
+            background-color: transparent; box-shadow: none; max-width: 90%; max-height: 90vh;
+            width: auto; height: auto; padding: 0 !important; border-radius: 5px;
             animation-name: zoom; animation-duration: 0.5s;
         }
         @keyframes zoom { from {transform:scale(0.1)} to {transform:scale(1)} }
@@ -383,32 +466,29 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
                     $result_specialties = $conn->query($sql_specialties);
                     if ($result_specialties && $result_specialties->num_rows > 0) {
                         while ($row = $result_specialties->fetch_assoc()) {
-                            
+
+                            $raw_description = $row['description'];
+                            // Truncate description for display
+                            $summary = (mb_strlen($raw_description) > 100) ? mb_substr($raw_description, 0, 100) . '...' : $raw_description;
+                            $summary_html = htmlspecialchars($summary, ENT_QUOTES);
+
                             echo '<div class="slider-item">
                                     <div class="specialty-card"
                                         data-name="' . htmlspecialchars($row['name'], ENT_QUOTES) . '"
                                         data-image="' . htmlspecialchars($row['image']) . '"
-                                        data-price="₱' . number_format($row['price'], 2) . '"
                                         data-description="' . htmlspecialchars($row['description'], ENT_QUOTES) . '"
                                     >';
-                            
+
                             echo '<div class="image-container">';
                             echo '  <img src="' . htmlspecialchars($row['image']) . '" alt="' . htmlspecialchars($row['name']) . '">';
                             echo '  <div class="hot-sticker-animated">Hot</div>';
                             echo '</div>';
-                            
+
                             echo '<h3>' . htmlspecialchars($row['name']) . '</h3>';
-                            $description = htmlspecialchars($row['description']);
-                            if (strlen($description) > 60) {
-                                $description = substr($description, 0, 60) . '...';
-                            }
-                            echo '<p>' . $description . '</p>';
-                            
-                            echo '<div class="price-arrow">
-                                    <span class="price">₱' . number_format($row['price'], 2) . '</span>
-                                    <button class="view-details-btn"><i class="fas fa-info-circle"></i></button>
-                                  </div>';
-                            
+                            echo '<p class="item-summary">' . $summary_html . '</p>';
+
+                            echo '<button class="view-details-btn">View Details <i class="fas fa-arrow-right"></i></button>';
+
                             echo '</div></div>';
                         }
                     } else {
@@ -554,16 +634,16 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
             <span class="close-button">&times;</span>
             <img id="modalItemImage" src="" alt="Menu Item Image">
             <div class="modal-item-details">
-                
+
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
                     <h2 id="modalItemName"></h2>
-                    <button id="viewFullImageBtn" class="view-details-btn" title="View full image" style="flex-shrink: 0; margin-left: 15px;">
+                    <button id="viewFullImageBtn" class="view-details-btn" title="View full image" style="flex-shrink: 0; margin-left: 15px; width: auto; padding: 8px 15px;">
                         <i class="fas fa-search-plus"></i>
                     </button>
                 </div>
 
                 <p id="modalItemDescription"></p>
-                <div class="modal-price-tag" id="modalItemPrice"></div>
+                <!-- Price tag removed -->
             </div>
         </div>
     </div>
@@ -592,7 +672,7 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
                 if (alertModalMessage) alertModalMessage.textContent = message;
                 if (alertModal) alertModal.style.display = 'flex';
             }
-            
+
             function closeAlertModal() {
                 if (alertModal) alertModal.style.display = 'none';
             }
@@ -766,7 +846,7 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
                     fetch('submit_rating.php', { method: 'POST', body: formData })
                         .then(response => response.json())
                         .then(data => {
-                            
+
                             showAlert(data.success ? 'Success!' : 'Error', data.message);
 
                             if (data.success) {
@@ -793,7 +873,7 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
             revealElements.forEach(el => {
                 revealObserver.observe(el);
             });
-            
+
             const menuItemModal = document.getElementById('menuItemModal');
             const modalName = document.getElementById('modalItemName');
             const modalImage = document.getElementById('modalItemImage');
@@ -806,18 +886,18 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
                 const button = event.target.closest('.view-details-btn');
                 if (button) {
                     const card = button.closest('.specialty-card');
-                    if (!card || !menuItemModal) return; 
+                    if (!card || !menuItemModal) return;
 
                     modalName.textContent = card.dataset.name;
                     modalImage.src = card.dataset.image;
-                    modalPrice.textContent = card.dataset.price;
+                    // Price setting removed
                     modalDescription.textContent = card.dataset.description;
 
                     menuItemModal.style.display = 'flex';
                 }
             });
 
-            if (modalCloseButton) { 
+            if (modalCloseButton) {
                 modalCloseButton.addEventListener('click', () => {
                     if (menuItemModal) menuItemModal.style.display = 'none';
                 });
@@ -845,7 +925,7 @@ if ($result_testimonials && $result_testimonials->num_rows > 0) { // Added check
                     if (imageViewerModal) imageViewerModal.style.display = 'none';
                 });
             }
-            
+
             // Close modals on background click
             window.addEventListener('click', (event) => {
                 if (event.target == menuItemModal) {

@@ -16,7 +16,7 @@
         background-color: #fff;
         color: #333;
         font-size: 1em;
-        border: 1px solid #ddd;
+        border: 1px solid #eee;
         cursor: pointer;
         border-radius: 50px;
         font-family: 'Mada', sans-serif;
@@ -27,10 +27,11 @@
         transition: all 0.3s ease;
         height: 42px;
         padding: 0 15px 0 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
     .notification-button {
-        background-color: transparent;
-        border: 1px solid #ddd;
+        background-color: #fff;
+        border: 1px solid #eee;
         color: #333;
         width: 42px;
         height: 42px;
@@ -327,6 +328,7 @@
     <div class="header-content">
         <div class="logo">
             <div class="logo-main-line">
+                <img src="logo.png" alt="Tavern Publico Logo" class="header-logo-image">
                 <span>TAVERN PUBLICO</span>
             </div>
             <span class="est-year">EST ★ 2024</span>
